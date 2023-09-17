@@ -1,0 +1,110 @@
+:root {
+    font-size: 16px;
+}
+* {
+    box-sizing: border-box;
+    font-family: 'Fira Sans', sans-serif;
+}
+body {
+    overflow-x: hidden;
+    min-height: 100%;
+    min-width: 100%;
+    padding: 1.5rem;
+    display: grid;
+    place-items: center;
+    background-color: white;
+}
+main {
+    --bg-color: hsl(233, 89%, 11%);
+    --sign-bg-color: hsl(39, 100%, 50%);
+    background-color: var(--bg-color);
+    width: 500px;
+    height: 600px;
+    max-width: 100%;
+    max-height: 100%;
+    text-align: center;
+    display: grid;
+    grid-gap: .2rem;
+    grid-template-rows: repeat(6, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: 'result result result result'
+                        'cancel cancel back divide'
+                        'seven eight nine multiply'
+                        'four five six minus'
+                        'one two three plus'
+                        'zero zero zero equals';
+}
+.result-wrapper {grid-area: result;}
+.cancel {grid-area: cancel;}
+.back {grid-area: back;}
+.divide {grid-area: divide;}
+.multiply {grid-area: multiply;}
+.minus {grid-area: minus;}
+.plus {grid-area: plus;}
+.equals { grid-area: equals;}
+.zero {grid-area: zero;}
+.one {grid-area: one;}
+.two {grid-area: two;}
+.three { grid-area: three;}
+.four {grid-area: four;}
+.five {grid-area: five;}
+.six {grid-area: six;}
+.seven {grid-area: seven;}
+.eight {grid-area: eight;}
+.nine { grid-area: nine;}
+
+.cancel {
+    transition: all .2s cubic-bezier(0.39, 0, 0.62, 1);
+}
+.sign, .cancel, .digit, .back, .equals {
+    transition: all .2s cubic-bezier(0.39, 0, 0.62, 1);
+}
+.num {
+    background-color: hsl(0, 54%, 96%);
+    color: var(--bg-color);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+    font-weight: lighter;
+    user-select: none;
+}
+.sign:hover, .back:hover, .equals:hover {
+    --sign-bg-color: hsl(39, 100%, 68%);
+    transform: scale(.98, .98) rotate(-0.1deg);
+}
+.digit:hover, .cancel:hover {
+    background-color: hsl(0, 54%, 99%);
+    transform: scale(.98, .98) rotate(-0.1deg);
+}
+.digit:active, .cancel:active, .sign:active, .back:active, .equals:active {
+    transform: scale(.9, .9) rotate(-1deg);
+}
+.result-wrapper {
+    display: grid;
+    align-items: center;
+    justify-items: end;
+}
+#result {
+    width: 100%;
+    background-color: var(--bg-color);
+    display: block;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    text-align: right;
+    transition: font-size .2s cubic-bezier(0.47, 0, 0.745, 1);
+}
+#result[data-animate="true"] {
+    font-size: 2.5rem;
+}
+.back, .divide, .multiply, .minus, .plus, .equals {
+    background-color: var(--sign-bg-color);
+    font-size: 1.5rem;
+}
+.fa-solid {
+    color: white;
+}
+.fa-arraow-left {
+    color: hsl(233, 89%, 11%);
+}
